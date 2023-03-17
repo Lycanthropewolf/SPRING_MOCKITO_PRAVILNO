@@ -17,7 +17,7 @@ public class UserDaoImpl {
 
     public List<User> getUserByName(String name) {
         if (users.contains(name)) {
-            return this.users;
+            return users;
         }
         return null;
     }
