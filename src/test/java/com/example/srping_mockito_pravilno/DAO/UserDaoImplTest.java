@@ -8,24 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 class UserDaoImplTest {
-    private UserDaoImpl userDao;
-
+    private final UserDaoImpl userDao=new UserDaoImpl();
 
     @Test
-    void getUserByName(String name) {
-        name = "Dima";
-        User user1 = new User("Vasya");
-        User user2 = new User("Petya");
-        User user3 = new User("Dima");
-        List<User> expected = new ArrayList<>();
-        expected.add(user1);
-        expected.add(user2);
-        expected.add(user3);
-        getUserByName(name);
-        Assertions.assertNotNull(expected);
+    void getUserByName() {
+
+        User userDao1 = userDao.getUserByName("Vasya");
+        Assertions.assertNotNull(userDao1);
     }
+
     @Test
-    void getUserByNameOrNull(String name){
+    void getUserByNameOrNull(String name) {
         name = "Dima";
         User user1 = new User("Vasya");
         User user2 = new User("Petya");
@@ -34,7 +27,7 @@ class UserDaoImplTest {
         expected.add(user1);
         expected.add(user2);
         expected.add(user3);
-        getUserByName(name);
+        getUserByName();
         Assertions.assertNull(expected);
     }
 

@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
-    private  List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public UserServiceTest(UserService userService) {
         MockitoAnnotations.initMocks(this);
@@ -25,21 +25,23 @@ class UserServiceTest {
 
     @Mock
     UserDaoImpl userDao;
+
     @InjectMocks
     UserService userService;
 
     @Test
     public void UserServiceTestOrTrue(User user) {
-        User user1=new User("Dima");
-        User user2=new User("Vasya");
-        User user3=new User("Petya");
+        User user1 = new User("Dima");
+        User user2 = new User("Vasya");
+        User user3 = new User("Petya");
         users.add(user1);
         users.add(user2);
         users.add(user3);
-        Mockito.doReturn(true).when(users).checkUserExist();
+        Mockito.doReturn(true).when(users);
     }
+
     @Test
-    public void UserServiceTestOrFalse(){
+    public void UserServiceTestOrFalse() {
 
     }
 }
