@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 class UserDaoImplTest {
-    private UserDaoImpl userDao;
+    private UserDaoImpl userDao = new UserDaoImpl();
 
     @Test
     void getUserByName() {
         User user = new User("Vasya");
-        userDao.getUserByName("Vasya");
+        userDao.getUserByName("егш");
 
         Assertions.assertNotNull(userDao);
     }
@@ -28,8 +28,8 @@ class UserDaoImplTest {
         expected.add(user1);
         expected.add(user2);
         expected.add(user3);
-        getUserByName();
-        Assertions.assertNull(expected);
+        userDao.getUserByName(name);
+        Assertions.assertNull(userDao);
     }
 
     @Test
