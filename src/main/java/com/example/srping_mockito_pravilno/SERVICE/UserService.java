@@ -1,17 +1,18 @@
 package com.example.srping_mockito_pravilno.SERVICE;
 
+import com.example.srping_mockito_pravilno.DAO.UserDao;
 import com.example.srping_mockito_pravilno.DAO.UserDaoImpl;
 import com.example.srping_mockito_pravilno.User;
 
 public class UserService {
-    private final UserDaoImpl userDao;
+    private UserDao dao;
 
-    public UserService(UserDaoImpl userDao) {
-        this.userDao = userDao;
+    public UserService(UserDao dao) {
+        this.dao = dao;
     }
 
     public boolean checkUserExist(User user) {
-        if (userDao.getAllUsers().contains(user)) {
+        if (dao.findAllUsers().contains(user)) {
             return true;
         }
         return false;

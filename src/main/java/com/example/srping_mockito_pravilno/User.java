@@ -1,5 +1,7 @@
 package com.example.srping_mockito_pravilno;
 
+import java.util.Objects;
+
 public class User {
     private  String name;
 
@@ -13,5 +15,17 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return getName().equals(user.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }

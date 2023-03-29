@@ -2,34 +2,32 @@ package com.example.srping_mockito_pravilno.DAO;
 
 import com.example.srping_mockito_pravilno.User;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
-public class UserDaoImpl {
-    private static List<User> users = new ArrayList<>();
+public class UserDaoImpl implements UserDao {
+    private final List<User> users;
 
     public UserDaoImpl() {
-        User user1 = new User("Vasya");
-        User user2 = new User("Petya");
-        User user3 = new User("Dima");
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
+        this.users = Arrays.asList(
+                new User("Dima"),
+                new User("Vasya")
+
+        );
     }
 
+    @Override
     public User getUserByName(String name) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.contains(name)) {
-                return users.get(i);
+        for (User user : users) {
+            if (user.getName().equals(name)) {
+                return user;
             }
         }
         return null;
     }
 
-
-    public List<User> getAllUsers() {
-        return Collections.unmodifiableList(users);
+    @Override
+    public List<User> findAllUsers() {
+        return users;
     }
-
 }
