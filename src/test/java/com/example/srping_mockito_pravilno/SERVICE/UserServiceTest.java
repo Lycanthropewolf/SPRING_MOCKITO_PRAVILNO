@@ -26,12 +26,12 @@ class UserServiceTest {
     public void checkUserExistTrue() {
         when(dao.findAllUsers()).thenReturn(users);
         User user1 = new User("Petya");
-        assertTrue(dao.findAllUsers().contains(user1));
+        assertTrue(userService.checkUserExist(user1));
     }
     @Test
     public void checkUserExistFalse(){
         when(dao.findAllUsers()).thenReturn(users);
         User user1=new User("Denis");
-        assertFalse(dao.findAllUsers().contains(user1));
+        assertFalse(userService.checkUserExist(user1));
     }
 }
