@@ -4,6 +4,8 @@ import com.example.srping_mockito_pravilno.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserDaoTest {
@@ -30,5 +32,7 @@ class UserDaoTest {
 
     @Test
     void findAllUsers() {
+        List<User> users1 = List.of(new User("Dima"), new User("Vasya"));
+        Assertions.assertEquals(dao.findAllUsers(),users1);
     }
 }
